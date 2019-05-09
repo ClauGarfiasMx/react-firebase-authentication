@@ -4,7 +4,7 @@ import * as ROUTES from '../../constants/routes';
 
 const Navigation = () => {
   return (
-    <div>
+    <nav>
       <ul>
         <li>
           <Link to={ROUTES.SIGN_IN}>Entrar</Link>
@@ -22,7 +22,7 @@ const Navigation = () => {
           <Link to={ROUTES.ADMIN}>Administración</Link>
         </li>
       </ul>
-    </div>
+    </nav>
   );
 };
 
