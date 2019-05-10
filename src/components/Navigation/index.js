@@ -4,8 +4,8 @@ import * as ROUTES from '../../constants/routes';
 
 const Navigation = () => {
   return (
-    <nav>
-      <ul>
+    <nav className="main-menu">
+      <ul className="flex-row">
         <li>
           <Link to={ROUTES.SIGN_IN}>Entrar</Link>
         </li>
