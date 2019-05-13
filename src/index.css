@@ -21,3 +21,7 @@ code {
   margin: 0 1rem;
   list-style-type: none;
 }
+
+.sign-up-form > * {
+  display: block;
+}
