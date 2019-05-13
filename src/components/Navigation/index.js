@@ -10,6 +10,9 @@ const Navigation = () => {
           <Link to={ROUTES.SIGN_IN}>Entrar</Link>
         </li>
         <li>
+          <Link to={ROUTES.SIGN_UP}>Registrarse</Link>
+        </li>
+        <li>
           <Link to={ROUTES.LANDING}>¡Bienvenido!</Link>
         </li>
         <li>
