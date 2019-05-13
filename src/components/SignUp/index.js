@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 import { withFirebase } from '../Firebase';
@@ -25,24 +25,28 @@ const INITIAL_STATE = {
 class SignUpFormBase extends Component {
   constructor(props) {
     super(props);
-    this.state = { ...INITIAL_STATE };
+    this.state = { ...INITIAL_STATE }; // ... is SPREAD OPERATOR, here is like a PUSH METHOD
   }
+
   onSubmit = event => {
     const { username, email, passwordOne } = this.state;
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
         this.setState({ ...INITIAL_STATE });
-        this.props.history.push(ROUTES.HOME);
+        this.props.history.push(ROUTES.HOME); // Pushes the route to the history object
       })
       .catch(error => {
         this.setState({ error });
       });
     event.preventDefault();
   };
+
   onChange = event => {
     this.setState({ [event.target.name]: event.target.value });
+    console.log(this.state.email);
   };
+
   render() {
     const {
       username,
@@ -51,41 +55,47 @@ class SignUpFormBase extends Component {
       passwordTwo,
       error,
     } = this.state;
+
     const isInvalid =
       passwordOne !== passwordTwo ||
       passwordOne === '' ||
       email === '' ||
       username === '';
+
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.onSubmit} className="sign-up-form">
         {/* INPUTS get value from local state & updates it with a onChange handler */}
+        <label>Nombre Completo</label>
         <input
           name="username"
           value={username}
           onChange={this.onChange}
           type="text"
-          placeholder="Full Name"
+          placeholder="Nombre Completo"
         />
+        <label>Email</label>
         <input
           name="email"
           value={email}
           onChange={this.onChange}
           type="text"
-          placeholder="Email Address"
+          placeholder="Email"
         />
+        <label>Contraseña</label>
         <input
           name="passwordOne"
           value={passwordOne}
           onChange={this.onChange}
           type="password"
-          placeholder="Password"
+          placeholder="Contraseña"
         />
+        <label>Confirmar Contraseña</label>
         <input
           name="passwordTwo"
           value={passwordTwo}
           onChange={this.onChange}
           type="password"
-          placeholder="Confirm Password"
+          placeholder="Confirmar Contraseña"
         />
         <button disabled={isInvalid} type="submit">
           Sign Up
@@ -99,7 +109,7 @@ class SignUpFormBase extends Component {
 const SignUpLink = () => (
   <p>
     Registrar Nuevo Usuario
-    <Link to={ROUTES.SIGN_UP}> Sign Up </Link>
+    <Link to={ROUTES.SIGN_UP}> Registro </Link>
   </p>
 );
 
