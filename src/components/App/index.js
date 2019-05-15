@@ -18,7 +18,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      authUser: null, // Sets a GLOBAL STATE
+      authUser: null, // Manages a GLOBAL STATE (authUser Object)
     };
   }
 
