@@ -2,10 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
+import { AuthUserContext } from '../Session';
 
-const Navigation = ({ authUser }) => (
+const Navigation = () => (
   <nav className="main-menu">
-    {authUser ? <NavigationAuth /> : <NavigationNonAuth />}
+    <AuthUserContext.Consumer>
+      {authUser =>
+        authUser ? <NavigationAuth /> : <NavigationNonAuth />
+      }
+      {/* {authUser ? <NavigationAuth /> : <NavigationNonAuth />} */}
+    </AuthUserContext.Consumer>
   </nav>
 );
 
