@@ -12,8 +12,6 @@ import AdminPage from '../Admin';
 
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
-// import { withFirebase } from '../Firebase';
-// import { AuthUserContext } from '../Session';
 
 const App = () => (
   <Router>

@@ -44,7 +44,6 @@ class SignUpFormBase extends Component {
 
   onChange = event => {
     this.setState({ [event.target.name]: event.target.value });
-    console.log(this.state.email);
   };
 
   render() {

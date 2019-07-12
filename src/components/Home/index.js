@@ -1,8 +1,10 @@
 import React from 'react';
+import Try from './Try';
 const Home = () => (
   <div>
     <h1> Home </h1>
     <p>Currently using React {React.version}</p>
+    <Try />
   </div>
 );
 
