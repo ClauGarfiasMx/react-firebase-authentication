@@ -2,7 +2,7 @@
   "name": "react-firebase-authentication",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ClauGarfiasMx.github.io/react-firebase-authentication",
+  "homepage": "https://claudiagarfias.works/reacttry",
   "dependencies": {
     "firebase": "^6.0.2",
     "gh-pages": "^2.0.1",
